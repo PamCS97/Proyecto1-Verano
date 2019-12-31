@@ -1,5 +1,4 @@
 package MapaSismologico;
-import MapaSismologico.modelo.Modelo;
 import MapaSismologico.control.ControlAplicacion;
 import MapaSismologico.vista.VentanaAplicacion;
 import java.io.IOException;

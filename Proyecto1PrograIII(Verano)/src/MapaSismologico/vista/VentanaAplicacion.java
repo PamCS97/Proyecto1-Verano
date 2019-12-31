@@ -9,7 +9,7 @@ import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
-import javax.swing.JPanel;
+
 
 
 public class VentanaAplicacion extends JFrame implements Observer {
@@ -31,8 +31,8 @@ public class VentanaAplicacion extends JFrame implements Observer {
 
     private void ajustarComponentes(Container c){
         c.setLayout(new BorderLayout());
-        JPanel panelPrincipal = new JPanel();   
-        c.add(BorderLayout.CENTER, panelPrincipal);
+        panelIndicador= new PanelIndicador(gestorPrincipal);
+        c.add(BorderLayout.CENTER, panelIndicador);
 
     }
 
