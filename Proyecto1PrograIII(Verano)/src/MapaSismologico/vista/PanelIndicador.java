@@ -13,7 +13,6 @@ import javax.swing.JPanel;
 import MapaSismologico.control.ControlAplicacion;
 import java.awt.Image;
 import javax.swing.ImageIcon;
-
 public class PanelIndicador extends JPanel {
 
     public PanelIndicador(ControlAplicacion nuevoGestor) {
@@ -24,8 +23,7 @@ public class PanelIndicador extends JPanel {
     }
 
     private void configurar() {
-        setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        setPreferredSize(new Dimension(853,667));
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -43,11 +41,12 @@ public class PanelIndicador extends JPanel {
 
     @Override 
     public void paint(Graphics g){
-        g.drawImage(imagen,0,0,getWidth(),getHeight(),this);
+        g.drawImage(imagen,0,0,853,667,this);
         setOpaque(false);
         super.paint(g);
     }
     
     private final ControlAplicacion gestorPrincipal;
     private final Image imagen;
+   
 }
