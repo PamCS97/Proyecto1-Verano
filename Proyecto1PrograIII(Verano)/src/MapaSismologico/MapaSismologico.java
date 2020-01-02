@@ -1,12 +1,11 @@
 package MapaSismologico;
+import MapaSismologico.Logica.Coordenada;
 import MapaSismologico.control.ControlAplicacion;
 import MapaSismologico.vista.VentanaAplicacion;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -22,11 +21,10 @@ public class MapaSismologico {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             JFrame.setDefaultLookAndFeelDecorated(true);
-            configure();
+            
         } catch (ClassNotFoundException
                 | IllegalAccessException
                 | InstantiationException
-                | IOException
                 | UnsupportedLookAndFeelException e) {
         }
 
@@ -41,19 +39,15 @@ public class MapaSismologico {
 
     public void mostrarInterfaz(){
         ControlAplicacion gestorPrincipal = new ControlAplicacion();
+        coordenadas = new Coordenada();
             try {
                 new VentanaAplicacion(gestorPrincipal).init();
+                coordenadas.leerXML("map.xml");
             } catch (IOException ex) {
                 Logger.getLogger(MapaSismologico.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
 
-    private static void configure() throws IOException {
-        InputStream in = MapaSismologico.class.getResourceAsStream("vista/imagenes/MapaCR.png");
-        ImageIcon icon = new ImageIcon(ImageIO.read(in));
 
-        UIManager.put("OptionPane.warningIcon", icon); 
-    }
-
-    
+    private Coordenada coordenadas;
 }
