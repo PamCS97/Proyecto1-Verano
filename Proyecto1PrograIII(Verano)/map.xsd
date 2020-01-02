@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="base-map">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="image"/>
+        <xs:element ref="coordinates"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="image">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="url"/>
+        <xs:element ref="dimension"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="url" type="xs:anyURI"/>
+  <xs:element name="dimension">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="width"/>
+        <xs:element ref="height"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="width" type="xs:integer"/>
+  <xs:element name="height" type="xs:integer"/>
+  <xs:element name="coordinates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="coordinate"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="coordinate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="image-position"/>
+        <xs:element ref="map-position"/>
+      </xs:sequence>
+      <xs:attribute name="label" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="image-position">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="x"/>
+        <xs:element ref="y"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="x" type="xs:integer"/>
+  <xs:element name="y" type="xs:integer"/>
+  <xs:element name="map-position">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="longitude"/>
+        <xs:element ref="latitude"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="longitude">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="longitude-degrees"/>
+        <xs:element ref="minutes"/>
+        <xs:element ref="seconds"/>
+        <xs:element ref="longitude-direction"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="latitude">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="latitude-degrees"/>
+        <xs:element ref="minutes"/>
+        <xs:element ref="seconds"/>
+        <xs:element ref="latitude-direction"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="longitude-degrees">
+    <xs:simpleType>
+      <xs:restriction base="xs:integer">
+        <xs:minInclusive value="0"/>
+        <xs:maxInclusive value="180"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="latitude-degrees">
+    <xs:simpleType>
+      <xs:restriction base="xs:integer">
+        <xs:minInclusive value="-90"/>
+        <xs:maxInclusive value="90"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="minutes">
+    <xs:simpleType>
+      <xs:restriction base="xs:integer">
+        <xs:minInclusive value="0"/>
+        <xs:maxInclusive value="59"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="seconds">
+    <xs:simpleType>
+      <xs:restriction base="xs:integer">
+        <xs:minInclusive value="0"/>
+        <xs:maxInclusive value="59"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="longitude-direction">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="E"/>
+        <xs:enumeration value="W"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="latitude-direction">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="N"/>
+        <xs:enumeration value="S"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+</xs:schema>
