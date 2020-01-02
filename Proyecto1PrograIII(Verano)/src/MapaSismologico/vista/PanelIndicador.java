@@ -1,14 +1,9 @@
 package MapaSismologico.vista;
 
-import java.awt.Color;
-import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.BorderFactory;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import MapaSismologico.control.ControlAplicacion;
 import java.awt.Image;
@@ -23,7 +18,7 @@ public class PanelIndicador extends JPanel {
     }
 
     private void configurar() {
-        setPreferredSize(new Dimension(853,667));
+        setPreferredSize(new Dimension(750,650));
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
