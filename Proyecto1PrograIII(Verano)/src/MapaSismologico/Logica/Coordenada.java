@@ -26,5 +26,8 @@ public void leerXML(String archivo){
             System.err.printf("Excepción: '%s'%n", ex.getMessage());
         }
 }
-    
+  
+private ImagePosition imgPos;
+private MapPosition mapPos;
+
 }
