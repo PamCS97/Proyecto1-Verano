@@ -1,16 +1,15 @@
 package MapaSismologico.control;
 
+import MapaSismologico.Logica.Coordinate;
 import java.util.Observer;
 import MapaSismologico.modelo.Modelo;
+import java.util.ArrayList;
+import javax.xml.bind.JAXBException;
 
 public class ControlAplicacion {
 
     public ControlAplicacion(Modelo datos) {
         this.datos = datos;
-    }
-
-    public ControlAplicacion() {
-        this(Modelo.obtenerInstancia());
     }
 
     public void registrar(Observer obs) {
@@ -21,13 +20,16 @@ public class ControlAplicacion {
         datos.update();
     }
 
-    public void marcar(int i, int j, int posicion) throws IllegalArgumentException {
-        if (datos.verificarTurno(posicion)) {
-            System.out.printf("i: %d, j: %d, p: %d%n", i, j, posicion);
-            datos.marcar(i, j, posicion);
-        } else {
-            throw new IllegalArgumentException();
-        }
+    public ArrayList<Coordinate> dibujaCoordenadas() throws JAXBException {
+        return datos.dibujaCoordenadas();
+    }
+
+    public void EdicionShow() {
+        // Application.Application.EDICION_CONTROLLER.show();
+    }
+
+    public void ListadoShow() {
+       // Application.Application.LISTADO_CONTROLLER.show();
     }
 
     private Modelo datos;

@@ -1,4 +1,4 @@
-package MapaSismologico.Logica;
+  package MapaSismologico.Logica;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -50,7 +50,11 @@ public class Longitude {
         this.longitudeDirection = longitudeDirection;
     }
 
-    
+    public String longitudCompleta(){
+        String cadena;
+        cadena = longitudeDeegres+"°"+minutes+"´"+seconds+"'' "+longitudeDirection;
+        return cadena;
+    }
     
 private String longitudeDeegres;
 private String minutes;

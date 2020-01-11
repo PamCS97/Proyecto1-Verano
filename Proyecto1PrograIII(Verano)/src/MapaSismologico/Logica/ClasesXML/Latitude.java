@@ -51,7 +51,11 @@ public class Latitude {
         this.latitudeDirection = latitudeDirection;
     }
    
-    
+    public String latitudeCompleta(){
+        String cadena;
+        cadena = latitudeDeegres+"°"+minutes+"´"+seconds+"'' "+latitudeDirection;
+        return cadena;
+    }
     
 private String latitudeDeegres;
 private String minutes;
