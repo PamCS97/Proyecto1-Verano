@@ -76,8 +76,8 @@ public class Sismo {
     
     @Override
     public String toString(){
-        String cadena = secuenciaRegistro+" "+secuenciaAnnio+" "+fechaEvento+" "+
-                longitud+" "+latitud+" "+magnitudEvento+" "+profundidadEvento;
+        String cadena = "Sec.Registro "+secuenciaRegistro+" Sec.Año"+secuenciaAnnio+" Fecha "+fechaEvento+" Long."+
+                longitud+" Lat."+latitud+" Mag.Evento"+magnitudEvento+" Prof.Evento "+profundidadEvento;
         return cadena;
     }
     private int secuenciaRegistro;

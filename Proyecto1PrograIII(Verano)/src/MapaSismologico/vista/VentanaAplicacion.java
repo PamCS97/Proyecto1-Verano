@@ -89,11 +89,12 @@ private void opcion2ActionPerformed(java.awt.event.ActionEvent evt) {
     }    
 
 private void opcion3ActionPerformed(java.awt.event.ActionEvent evt) {                                                
-        
+               
+ 
     }    
 
 private void opcion4ActionPerformed(java.awt.event.ActionEvent evt) {                                                
-        
+           System.exit(0);
     }    
 
     public void init() throws IOException {
